@@ -18,3 +18,6 @@ Coffee Ordering System Demo Using Javascript
 #### To Clone
 run this on terminal<br><br>
 <code>git clone https://github.com/ncoderlk/Coffee.git</code>
+
+##### Demo
+<code>https://replit.com/@ncoderlk/Coffee?v=1</code>
