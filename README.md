@@ -14,3 +14,7 @@ Coffee Ordering System Demo Using Javascript
   #### Compoments
   ##### <code>Nodejs</code>
   <code>Readline</code>
+
+#### To Clone
+run this on terminal<br><br>
+<code>git clone https://github.com/ncoderlk/Coffee.git</code>
