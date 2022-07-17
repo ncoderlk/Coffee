@@ -18,17 +18,23 @@ var coffee_type;
 
 var complete_order;
 
+var Quantity;
+
+var price;
+
+var Answer;
+
 var Menu = [
 
     {
         'Name': 'Latte',
-        'Price': '10$',
+        'Price': '9$',
         'Number': 0
 
     },
     {
         'Name': 'Latte with Whipped Cream',
-        'Price': '10$',
+        'Price': '12$',
         'Number': 1
     },
     {
@@ -38,12 +44,12 @@ var Menu = [
     },
     {
         'Name': 'Cappachino',
-        'Price': '9$',
+        'Price': '13$',
         'Number': 3
     },
     {
         'Name': 'Esprasso',
-        'Price': '8$',
+        'Price': '10$',
         'Number': 4
     },
 
@@ -126,41 +132,36 @@ function check_coffee_type() {
 
     if (coffee_type == 0 || coffee_type == '0') {
         console.log('\nYou Have Orderd Latte\n')
-        console.log('Price is ' + Menu[0].Price)
         complete_order = true;
         complete()
     }
     else {
         if (coffee_type == 1 || coffee_type == '1') {
             console.log('\nYou Have Orderd Latte With Whipped Cream\n')
-            console.log('Price is ' + Menu[1].Price)
             complete_order = true;
             complete()
         }
         else {
             if (coffee_type == 2 || coffee_type == '2') {
                 console.log('\nYou Have Orderd Black Coffee\n')
-                console.log('Price is ' + Menu[2].Price)
                 complete_order = true;
                 complete()
             }
             else {
                 if (coffee_type == 3 || coffee_type == '3') {
                     console.log('\nYou Have Orderd Cappachino\n')
-                    console.log('Price is ' + Menu[3].Price)
                     complete_order = true;
                     complete()
                 }
                 else {
                     if (coffee_type == 4 || coffee_type == '4') {
                         console.log('\nYou Have Orderd Esprasso\n')
-                        console.log('Price is ' + Menu[4].Price)
                         complete_order = true;
                         complete()
                     }
                     else {
                         rl.close()
-                        console.log(`Invalid...Please try Again, ${user_name}`)
+                        console.log(`Sorry We Don't Have That Here, ${user_name}`)
                         complete_order = false;
                     }
                 }
@@ -175,6 +176,72 @@ function check_coffee_type() {
 
 }
 function complete() {
+    rl.question('Enter The Quantity That You Want..?\n\n', (quantity) => {
+
+        Quantity = parseInt(quantity)
+
+        if (coffee_type == 0 || coffee_type == '0') {
+
+            price = Quantity * 9
+            console.log('\nPrice is ' + price + '$\n')
+        }
+        else {
+            if (coffee_type == 1 || coffee_type == '1') {
+
+                price = Quantity * 12
+                console.log('\nPrice is ' + price + '$\n')
+            }
+            else {
+                if (coffee_type == 2 || coffee_type == '2') {
+
+                    price = Quantity * 3
+                    console.log('\nPrice is ' + price + '$\n')
+                }
+                else {
+                    if (coffee_type == 3 || coffee_type == '3') {
+
+                        price = Quantity * 13
+                        console.log('\nPrice is ' + price + '$\n')
+                    }
+                    else {
+                        if (coffee_type == 4 || coffee_type == '4') {
+
+                            price = Quantity * 10
+                            console.log('\nPrice is ' + price + '$\n')
+                        }
+                        else {
+                            complete()
+                        }
+                    }
+                }
+            }
+        }
+
+
+        confirmOrder()
+
+    })
+
+}
+function confirmOrder() {
+
+    rl.question('\nIf You Want to Confirm Type y and If you want to reject type n?\n\n', (answer) => {
+
+        Answer = answer
+
+        if (answer == "y" || answer == "Y" || answer == "yes") {
+            finishAll()
+        }
+        else {
+            console.log('\nYour Order Has Rejected\n')
+            console.log(`\n Thank You For Coming...See You Again ${user_name}..! \n`)
+            rl.close()
+        }
+
+    })
+
+}
+function finishAll() {
     if (complete_order == true) {
         console.log(`\n Your Order is SuccessFull, ${user_name} \n`)
         console.log(`\n Thank You For Coming...See You Again ${user_name}..! \n`)
