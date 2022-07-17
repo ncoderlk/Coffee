@@ -13,7 +13,7 @@ Coffee Ordering System Demo Using Javascript
  <br>
   #### Compoments
   ##### <code>Nodejs</code>
-  <code>Readline</code>
+  <code>require('readline')</code>
 
 #### To Clone
 run this on terminal<br><br>
