@@ -57,7 +57,7 @@ var Menu = [
 
 //Input User_Name
 
-rl.question('What Is Your Name..?\n\n', (usrName) => {
+rl.question('\nWhat Is Your Name..?\n\n', (usrName) => {
 
     user_name = usrName
     enabledUser_name = true
@@ -96,14 +96,14 @@ function check_evil_status() {
 
 
     if (evil_status == true) {
-        console.log(`Hello ${user_name}, Now you are welcomed here..!`)
+        rl.write(`\nHello ${user_name}, Now you are welcomed here..!\n`)
 
         ask_for_choice()
 
     }
 
     else {
-        console.error('You can\'t enter to the shop')
+        console.error('\nYou can\'t enter to the shop\n')
         rl.close()
     }
 
@@ -118,7 +118,7 @@ function ask_for_choice() {
     ask()
 
     function ask() {
-        rl.question('What Do You Want..Enter the Number of the coffee From Table..?\n\n', (coffeeType) => {
+        rl.question('\nWhat Do You Want..Enter the Number of the coffee From Table..?\n\n', (coffeeType) => {
 
             coffee_type = parseInt(coffeeType)
             check_coffee_type()
@@ -131,37 +131,37 @@ function ask_for_choice() {
 function check_coffee_type() {
 
     if (coffee_type == 0 || coffee_type == '0') {
-        console.log('\nYou Have Orderd Latte\n')
+        rl.write('\nYou Have Orderd Latte\n')
         complete_order = true;
         complete()
     }
     else {
         if (coffee_type == 1 || coffee_type == '1') {
-            console.log('\nYou Have Orderd Latte With Whipped Cream\n')
+            rl.write('\nYou Have Orderd Latte With Whipped Cream\n')
             complete_order = true;
             complete()
         }
         else {
             if (coffee_type == 2 || coffee_type == '2') {
-                console.log('\nYou Have Orderd Black Coffee\n')
+                rl.write('\nYou Have Orderd Black Coffee\n')
                 complete_order = true;
                 complete()
             }
             else {
                 if (coffee_type == 3 || coffee_type == '3') {
-                    console.log('\nYou Have Orderd Cappachino\n')
+                    rl.write('\nYou Have Orderd Cappachino\n')
                     complete_order = true;
                     complete()
                 }
                 else {
                     if (coffee_type == 4 || coffee_type == '4') {
-                        console.log('\nYou Have Orderd Esprasso\n')
+                        rl.write('\nYou Have Orderd Esprasso\n')
                         complete_order = true;
                         complete()
                     }
                     else {
                         rl.close()
-                        console.log(`Sorry We Don't Have That Here, ${user_name}`)
+                        rl.write(`\nSorry We Don't Have That Here, ${user_name}\n`)
                         complete_order = false;
                     }
                 }
@@ -176,38 +176,38 @@ function check_coffee_type() {
 
 }
 function complete() {
-    rl.question('Enter The Quantity That You Want..?\n\n', (quantity) => {
+    rl.question('\nEnter The Quantity That You Want..?\n\n', (quantity) => {
 
         Quantity = parseInt(quantity)
 
         if (coffee_type == 0 || coffee_type == '0') {
 
             price = Quantity * 9
-            console.log('\nPrice is ' + price + '$\n')
+            rl.write('\nPrice is ' + price + '$\n')
         }
         else {
             if (coffee_type == 1 || coffee_type == '1') {
 
                 price = Quantity * 12
-                console.log('\nPrice is ' + price + '$\n')
+                rl.write('\nPrice is ' + price + '$\n')
             }
             else {
                 if (coffee_type == 2 || coffee_type == '2') {
 
                     price = Quantity * 3
-                    console.log('\nPrice is ' + price + '$\n')
+                    rl.write('\nPrice is ' + price + '$\n')
                 }
                 else {
                     if (coffee_type == 3 || coffee_type == '3') {
 
                         price = Quantity * 13
-                        console.log('\nPrice is ' + price + '$\n')
+                        rl.write('\nPrice is ' + price + '$\n')
                     }
                     else {
                         if (coffee_type == 4 || coffee_type == '4') {
 
                             price = Quantity * 10
-                            console.log('\nPrice is ' + price + '$\n')
+                            rl.write('\nPrice is ' + price + '$\n')
                         }
                         else {
                             complete()
@@ -233,8 +233,8 @@ function confirmOrder() {
             finishAll()
         }
         else {
-            console.log('\nYour Order Has Rejected\n')
-            console.log(`\n Thank You For Coming...See You Again ${user_name}..! \n`)
+            rl.write('\nYour Order Has Rejected\n')
+            rl.write(`\n Thank You For Coming...See You Again ${user_name}..! \n`)
             rl.close()
         }
 
@@ -243,8 +243,8 @@ function confirmOrder() {
 }
 function finishAll() {
     if (complete_order == true) {
-        console.log(`\n Your Order is SuccessFull, ${user_name} \n`)
-        console.log(`\n Thank You For Coming...See You Again ${user_name}..! \n`)
+        rl.write(`\n Your Order is SuccessFull, ${user_name} \n`)
+        rl.write(`\n Thank You For Coming...See You Again ${user_name}..! \n`)
         rl.close()
     }
     else (
